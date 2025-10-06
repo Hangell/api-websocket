@@ -41,15 +41,19 @@ export class BinanceService {
       ws.on('error', (err) => subscriber.error(err));
       ws.on('close', () => subscriber.error(new Error('closed')));
 
-      return () => { try { ws.close(); } catch { } };
+      return () => {
+        try {
+          ws.close();
+        } catch {}
+      };
     }).pipe(
-      retryWhen(errs =>
+      retryWhen((errs) =>
         errs.pipe(
           scan((i) => i + 1, 0),
-          delayWhen((i) => timer(Math.min(30000, 1000 * Math.pow(2, i))))
-        )
+          delayWhen((i) => timer(Math.min(30000, 1000 * Math.pow(2, i)))),
+        ),
       ),
-      shareReplay({ bufferSize: 1, refCount: true })
+      shareReplay({ bufferSize: 1, refCount: true }),
     );
 
     this.map.set(key, stream$);
