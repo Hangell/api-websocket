@@ -12,14 +12,14 @@ interface ClientSubs {
 }
 
 @WebSocketGateway({
-  namespace: '/tickers',
+  namespace: '/criptos',
   cors: { origin: '*' },
   transports: ['websocket', 'polling'],
 })
 @Injectable()
-export class TickersGateway implements OnGatewayConnection, OnGatewayDisconnect {
+export class CriptosGateway implements OnGatewayConnection, OnGatewayDisconnect {
   @WebSocketServer() server: Server;
-  private readonly log = new Logger(TickersGateway.name);
+  private readonly log = new Logger(CriptosGateway.name);
 
   private clientSubs = new Map<string, ClientSubs>();
 

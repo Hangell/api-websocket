@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
-import { TickersGateway } from './tickers.gateway';
 import { BinanceModule } from '@/shared/api-externals/binance/binance.module';
+import { CriptosGateway } from './criptos.gateway';
 
 @Module({
   imports: [BinanceModule],
-  providers: [TickersGateway],
-  exports: [TickersGateway],
+  providers: [CriptosGateway],
+  exports: [CriptosGateway],
 })
-export class TickersModule { }
+export class CriptosModule { }
