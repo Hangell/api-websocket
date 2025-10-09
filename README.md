@@ -1,6 +1,6 @@
 # 📡 NestJS Binance WebSocket Gateway
 
-Este projeto é um **servidor NestJS** que conecta-se à **Binance WebSocket API** para transmitir dados de *tickers em tempo real* via **Socket.IO** para clientes conectados (front-end, Postman, ou outro serviço).
+Este projeto é um **servidor NestJS** que conecta-se à **Binance WebSocket API** para transmitir dados de *cripto em tempo real* via **Socket.IO** para clientes conectados (front-end, Postman, ou outro serviço).
 
 ---
 
